@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUserBooking } from "../../API/bus.api";
 import Cookies from "js-cookie";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode"; 
 
 function YourTrip() {
   const [trips, setTrips] = useState([]);
@@ -15,7 +15,6 @@ function YourTrip() {
       try {
         const data = { email: user_detail.email };
         const res = await getUserBooking(data);
-        console.log(res);
 
         if (res.status === 200) {
           setTrips(res.data.bookSchema);
@@ -58,14 +57,19 @@ function YourTrip() {
                     Center: {trip?.center ? trip?.center?.center : "N/A"}
                   </h2>
                   <p className="text-gray-600 mt-1 sm:mt-2">
-                    Route:{" "}
-                    {trip?.center ? trip?.center?.route.join(" → ") : "N/A"}
+                    Route: {trip?.center ? trip?.center?.route.join(" → ") : "N/A"}
                   </p>
                   <p className="text-gray-600 mt-1 sm:mt-2">
                     Pickup Point: {trip?.center ? trip?.pickup : "N/A"}
                   </p>
                   <p className="text-gray-600 mt-1 sm:mt-2">
                     Date: {trip?.center ? trip?.date : "N/A"}
+                  </p>
+                  <p className="text-gray-600 mt-1 sm:mt-2">
+                    Bus Number: {trip?.bus ? trip?.bus : "Releases soon!!"}
+                  </p>
+                  <p className="text-gray-600 mt-1 sm:mt-2">
+                    Seat: {trip?.seat ? trip?.seat : "Releases soon!!"}
                   </p>
                   <p className="text-gray-600 mt-1 sm:mt-2">Timing: Forenoon</p>
                 </div>
@@ -87,32 +91,23 @@ function YourTrip() {
                   trip?.isRefund === false ? "text-green-600" : "text-red-600"
                 }`}
               >
-                Status: {trip?.isRefund ? "Refunded" : "Sucess"}
-                {trip?.isRefund && (
-                  <div>
-                    <p
-                      className="mt-1 sm:mt-2 font-semibold 
-                        text-red-600"
-                    >
-                      Due to a technical issue, your transaction will be
-                      refunded within 3-4 working days.
-                    </p>
-                    <p
-                      className="mt-1 sm:mt-2 font-semibold 
-                        text-red-600"
-                    >
-                      We appreciate your understanding and patience.
-                    </p>
-                  </div>
-                )}
+                Status: {trip?.isRefund ? "Refunded" : "Success"}
               </p>
+              {trip?.isRefund  && (
+                <div className="mt-1 sm:mt-2">
+                  <p className="font-semibold text-red-600">
+                    Due to a technical issue, your transaction will be refunded within 3-4 working days.
+                  </p>
+                  <p className="font-semibold text-red-600">
+                    We appreciate your understanding and patience.
+                  </p>
+                </div>
+              )}
             </div>
           ))
         ) : (
           <div className="flex flex-col items-center justify-center bg-gray-100 p-6 rounded-lg shadow-lg">
-            <h2 className="text-xl font-semibold text-gray-700">
-              No Trips Found
-            </h2>
+            <h2 className="text-xl font-semibold text-gray-700">No Trips Found</h2>
             <p className="text-gray-600 mt-2">
               It looks like you haven't booked any trips yet.
             </p>

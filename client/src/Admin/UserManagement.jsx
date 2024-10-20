@@ -203,7 +203,8 @@ const UserManagement = () => {
             className="p-2 border border-gray-300 rounded w-full"
             required
           >
-            <option value="GLA MAIN GATE">GLA MAIN GATE</option>
+
+            <option selected value="GLA MAIN GATE">GLA MAIN GATE</option>
             <option value="Chhatikra">Chhatikra</option>
             <option value="Goverdhan chauraha">Goverdhan chauraha</option>
             <option value="Krishana Valley">Krishana Valley</option>
@@ -227,9 +228,10 @@ const UserManagement = () => {
             className="p-2 border border-gray-300 rounded w-full"
             required
           >
+          
             {allCenters && allCenters.length > 0 ? (
-              allCenters.map((center) => (
-                <option key={center?._id} value={center?._id}>
+              allCenters.map((center, idx) => (
+                <option selected={idx===0} key={center?._id} value={center?._id}>
                   {center.center}
                 </option>
               ))
@@ -245,7 +247,7 @@ const UserManagement = () => {
             className="p-2 border border-gray-300 rounded w-full"
             required
           >
-            <option key={"26-10-2024"} value={"26-10-2024"}>
+            <option selected key={"26-10-2024"} value={"26-10-2024"}>
               26-10-2024
             </option>
             <option key={"27-10-2024"} value={"27-10-2024"}>
