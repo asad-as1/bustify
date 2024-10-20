@@ -189,7 +189,7 @@ const UserManagement = () => {
           <label className="block text-gray-700 mb-2">Password</label>
           <input
             type="text"
-            {...register("password", { required: "Password is required" })}
+            {...register("password")}
             className="p-2 border border-gray-300 rounded w-full"
           />
         </div>
