@@ -239,7 +239,7 @@ const UserManagement = () => {
           
             {allCenters && allCenters.length > 0 ? (
               allCenters.map((center, idx) => (
-                <option selected={idx===0} key={center?._id} value={center?._id}>
+                <option selected={idx==0} key={center?._id} value={center?._id}>
                   {center.center}
                 </option>
               ))
