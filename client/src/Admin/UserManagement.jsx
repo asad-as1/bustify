@@ -191,7 +191,6 @@ const UserManagement = () => {
             type="text"
             {...register("password", { required: "Password is required" })}
             className="p-2 border border-gray-300 rounded w-full"
-            required
           />
         </div>
         <div className="mb-4">
