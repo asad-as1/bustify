@@ -61,7 +61,7 @@ const Signup = () => {
 
         navigate("/");
       } else {
-        swal("Oops!", "Try again", "error");
+        swal("Oops!", "Email or Mobile Number already exist!! ", "error");
       }
     } catch (error) {
       Swal.fire({

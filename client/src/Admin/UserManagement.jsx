@@ -186,6 +186,15 @@ const UserManagement = () => {
           />
         </div>
         <div className="mb-4">
+          <label className="block text-gray-700 mb-2">Password</label>
+          <input
+            type="text"
+            {...register("password", { required: "Password is required" })}
+            className="p-2 border border-gray-300 rounded w-full"
+            required
+          />
+        </div>
+        <div className="mb-4">
           <label className="block text-gray-700 mb-2">Phone Number</label>
           <input
             type="text"
@@ -212,7 +221,7 @@ const UserManagement = () => {
           </select>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 mb-2">paymentId</label>
+          <label className="block text-gray-700 mb-2">PaymentId</label>
           <input
             type="text"
             {...register("paymentId", { required: "paymentId is required" })}
@@ -241,7 +250,7 @@ const UserManagement = () => {
           </select>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 mb-2">date</label>
+          <label className="block text-gray-700 mb-2">Date</label>
           <select
             {...register("date")}
             className="p-2 border border-gray-300 rounded w-full"
@@ -255,6 +264,25 @@ const UserManagement = () => {
             </option>
           </select>
         </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 mb-2">Bus</label>
+          <input
+            type="number"
+            {...register("bus")}
+            className="p-2 border border-gray-300 rounded w-full"
+            // required
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 mb-2">Seat Number</label>
+          <input
+            type="number"
+            {...register("seat")}
+            className="p-2 border border-gray-300 rounded w-full"
+            // required
+          />
+        </div>
+
         <button
           type="submit"
           className="bg-blue-500 text-white p-2 rounded w-full"
